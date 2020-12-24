@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import ErrorBanner from '../components/ErrorBanner';
+import ResultDetailHeader from '../components/ResultDetailHeader';
 import useResultDetail from '../hooks/useResultDetail';
 
 const ResultDetailScreen = ({ navigation }) => { 
@@ -12,9 +13,9 @@ const ResultDetailScreen = ({ navigation }) => {
   if (errorMessage) return <ErrorBanner message={errorMessage} />
 
   return (
-    <View>
-      <Text>{id}</Text>
-    </View>
+    <>
+      <ResultDetailHeader data={resultDetail} />
+    </>
   );
 };
 
