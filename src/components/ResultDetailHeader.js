@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, Image, View, StyleSheet, Dimensions } from 'react-native';
+import { Text, Image, View, StyleSheet, Dimensions, Button } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
-const ResultDetailHeader = ({ data }) => { 
+const ResultDetailHeader = ({ data, navigation }) => { 
 
   return (
     <View>
@@ -13,6 +14,7 @@ const ResultDetailHeader = ({ data }) => {
       />
       <Text style={styles.title}>{data.name}</Text>
       <Text style={styles.rating}>{data.rating} Rating, {data.review_count} Review</Text>
+      <Button title="See More Pictures" onPress={() => navigation.navigate('Gallery', { data })} />
     </View>
   )
 }
@@ -41,6 +43,11 @@ const styles = StyleSheet.create({
     left: 10,
     color: 'white',
   },
+  button: {
+    fontSize: 16,
+    width: 200,
+    color: '#CCC'
+  }
 });
 
-export default ResultDetailHeader;
+export default withNavigation(ResultDetailHeader);
