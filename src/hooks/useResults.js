@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import yelp from '../api/yelp';
 
-const DEFAULT_SEARCH_TERM = 'pasta';
+const DEFAULT_SEARCH_TERM = 'asian';
 
 export default () => {
   const [results, setResults] = useState([]);
