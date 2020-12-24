@@ -1,4 +1,4 @@
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import yelp from '../api/yelp';
 
 const DEFAULT_SEARCH_TERM = 'pasta';

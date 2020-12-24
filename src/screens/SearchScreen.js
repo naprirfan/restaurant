@@ -3,6 +3,7 @@ import { ScrollView, Text, StyleSheet } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useResults from '../hooks/useResults';
 import ResultsList from '../components/ResultsList';
+import ErrorBanner from '../components/ErrorBanner';
 
 const SearchScreen = () => {
   const [term, setTerm] = useState('');
@@ -25,7 +26,7 @@ const SearchScreen = () => {
           onTermChange={setTerm} 
           onTermSubmit={() => searchApi(term)}
           />
-        { errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text>: null }
+        { errorMessage ? <ErrorBanner message={errorMessage} />: null }
         <ScrollView>
           <ResultsList title="Cost Effective" results={filterResultsByPrice('€')} />
           <ResultsList title="Bit Pricier" results={filterResultsByPrice('€€')} />
@@ -35,10 +36,6 @@ const SearchScreen = () => {
   );
 }
 
-const styles = StyleSheet.create({
-  errorMessage: {
-    color: 'red',
-  }
-});
+const styles = StyleSheet.create({});
 
 export default SearchScreen;
