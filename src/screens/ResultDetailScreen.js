@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, Button, StyleSheet } from 'react-native';
 import ErrorBanner from '../components/ErrorBanner';
 import ResultDetailHeader from '../components/ResultDetailHeader';
 import useResultDetail from '../hooks/useResultDetail';
@@ -19,6 +19,7 @@ const ResultDetailScreen = ({ navigation }) => {
   return (
     <>
       <ResultDetailHeader data={resultDetail} />
+      <Button title="See More Pictures" onPress={() => navigation.navigate('Gallery', { data: resultDetail })} />
       <Text style={styles.price}>{resultDetail.price} - {getCategoryText(resultDetail.categories)}</Text>
       <Address data={resultDetail} />
     </>

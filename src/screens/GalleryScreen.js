@@ -1,11 +1,27 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import Gallery from 'react-native-image-gallery';
 
-const GalleryScreen = ({ data }) => { 
+const getFormattedImageObject = (photos) => {
+  return photos.map(photo => {
+    return {
+      source: {
+        uri: photo,
+      }
+    }
+  })
+}
+
+const GalleryScreen = ({ navigation }) => { 
+  const data = navigation.getParam('data');
+  if (!data || !data.photos || !data.photos.length) return null;
+
+  const formattedImageObject = getFormattedImageObject(data.photos);
+
   return (
-    <View>
-      <Text>GalleryScreen</Text>
-    </View>
+    <Gallery
+      style={{ flex: 1, backgroundColor: 'black' }}
+      images={formattedImageObject}
+    />
   )
 };
 
