@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, Button, StyleSheet } from 'react-native';
+import { Text, Button, StyleSheet, Linking } from 'react-native';
 import ErrorBanner from '../components/ErrorBanner';
 import ResultDetailHeader from '../components/ResultDetailHeader';
 import useResultDetail from '../hooks/useResultDetail';
 import Address from '../components/Address';
+import Phone from '../components/Phone';
 
 const getCategoryText = (categories) => {
   if (!categories || !categories.length) return '';
@@ -22,6 +23,7 @@ const ResultDetailScreen = ({ navigation }) => {
       <Button title="See More Pictures" onPress={() => navigation.navigate('Gallery', { data: resultDetail })} />
       <Text style={styles.price}>{resultDetail.price} - {getCategoryText(resultDetail.categories)}</Text>
       <Address data={resultDetail} />
+      <Phone data={resultDetail} />
     </>
   );
 };

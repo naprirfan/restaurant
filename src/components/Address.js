@@ -24,7 +24,8 @@ const Address = ({ data, navigation }) => {
 
 const styles = StyleSheet.create({
   address: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginVertical: 10,
   },
   addressText: {
     marginLeft: 10,
